@@ -4,6 +4,7 @@ const ContactPageBody = () => {
     return (
         <section class="body-container" id="contact-container">
             <form name="contact" method="POST" id="contact-form" netlify>
+                <input type="hidden" name="form-name" value="contact" />
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input name="name" type="text" class="form-control" id="name" />
