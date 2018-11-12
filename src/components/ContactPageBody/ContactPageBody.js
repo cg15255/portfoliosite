@@ -1,26 +1,35 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
-const ContactPageBody = () => {
+import SuccessMessage from '../SuccessMessage/SuccessMessage';
+
+import './ContactPageBody.css';
+
+const ContactPageBody = ({successClosed, closeHandler}) => {
     return (
-        <section class="body-container" id="contact-container">
-            <form name="contact" method="POST" id="contact-form" netlify>
+        <section className="body-container" id="contact-container">
+            <Route path='/contact/success' exact render={() => <SuccessMessage 
+            successClosed={successClosed} 
+            closeHandler={closeHandler}  
+            />} />
+            <form name="contact" method="POST" id="contact-form" action="/contact/success">
                 <input type="hidden" name="form-name" value="contact" />
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input name="name" type="text" class="form-control" id="name" />
+                <div className="form-group">
+                    <label htmlFor="name">Name:</label>
+                    <input name="name" type="text" className="form-control" id="name" />
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input name="email" type="email" class="form-control" id="email" />
+                <div className="form-group">
+                    <label htmlFor="email">Email:</label>
+                    <input name="email" type="email" className="form-control" id="email" />
                 </div>
 
-                <div class="form-group">
-                    <label for="message">Message:</label>
+                <div className="form-group">
+                    <label htmlFor="message">Message:</label>
                     <textarea name="message" id="message" cols="30" rows="10"></textarea>
                 </div>
 
-                <input type="submit" class="btn btn--contact-form" value="Send!" />
+                <input type="submit" className="btn btn--contact-form" value="Send!" />
             </form>
         </section>
     )

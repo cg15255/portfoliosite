@@ -1,0 +1,60 @@
+.contact-page {
+  position: relative; 
+}
+.contact-page footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%; 
+}
+  
+#contact-container {
+  padding: 25px; 
+}
+  
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px; 
+}
+
+.form-group input, .form-group textarea {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ccc; 
+}
+
+.form-group textarea {
+  resize: none; }
+
+.formSuccess {
+  position: relative;
+  width: 70%;
+  margin: 10px auto;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+  background: #B10DC9;
+  padding: 25px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.formSuccess h1 {
+  margin:0;
+}
+
+.formSuccess h5 {
+  margin: 5px
+}
+
+.formSuccess .fa-times {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+}
+
+.formSuccess .fa-times:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,9 @@
+.socialIcons {
+    text-align: center;
+}
+.socialIcons li {
+    display: inline-block;
+    font-size: 25px;
+    color: #1ad1ff;
+    margin-right: 30px;
+}
