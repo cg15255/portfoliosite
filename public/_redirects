@@ -1,5 +1,2 @@
 # Redirects from what the browser requests to what we serve
-/contact            /#/projects
-/projects           /#/projects
-/success            /index.html/#/success        200
 /*                  /index.html     200

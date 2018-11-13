@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import axios from 'axios';
 
 import './App.css';
@@ -60,7 +60,7 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className="App site-container">
           <Header 
             heroHeaderText={this.state.wordpressData.hero_header_text}
@@ -89,7 +89,7 @@ class App extends Component {
           />} />      
           <Footer footerText={this.state.wordpressData.footer_text} />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
