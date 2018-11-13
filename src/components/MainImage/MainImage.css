@@ -1,5 +1,18 @@
 .main-image-wrapper {
     max-width: 1260px;
     margin: 0 auto;
-    padding: 0 20px; 
+    padding: 50px;
+    text-align: center;
+}
+
+.mainImage {
+    max-width: 100%;
+    margin-top: -50px;
+    margin-bottom: -75px;
+}
+
+@media screen and (min-width: 800px) {
+    .mainImage {
+        height: 400px;
+    }
 }

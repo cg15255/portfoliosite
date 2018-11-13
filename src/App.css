@@ -4,13 +4,17 @@
 * {
   box-sizing: border-box; }
 
-html, body {
-  margin: 0; }
+html, body, .root {
+  margin: 0; 
+  max-width: 100% !important;
+  max-height: 100% !important;
+  overflow-x: hidden;
+}
 
 html {
   font-family: 'Fira Sans', sans-serif;
   color: #494c4e;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 300; 
 }
 
@@ -31,7 +35,7 @@ h1, footer {
   text-align: center; }
 
 h1 {
-  font-size: 24px;
+  font-size: 26px;
 }
 
 @media screen and (min-width: 768px) {
@@ -41,7 +45,7 @@ h1 {
 }
 
 h3 {
-  font-size: 18px; 
+  font-size: 20px; 
 }
 
 h4 {

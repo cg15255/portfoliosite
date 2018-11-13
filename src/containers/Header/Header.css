@@ -15,6 +15,10 @@ margin: 0 auto;
     } 
 }
 
+.body-container {
+  padding: 10px;
+}
+
 .site-container .body-container {
 max-width: 760px;
 margin: 0 auto;

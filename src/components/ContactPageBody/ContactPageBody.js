@@ -12,7 +12,7 @@ const ContactPageBody = ({successClosed, closeHandler}) => {
             successClosed={successClosed} 
             closeHandler={closeHandler}  
             />} />
-            <form name="contact" method="POST" id="contact-form" action="/contact/success">
+            <form name="contact" method="POST" id="contact-form" action="/success">
                 <input type="hidden" name="form-name" value="contact" />
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>
