@@ -9,7 +9,7 @@ const Nav = ({line1Class, line2Class, line3Class, navMenuClass, toggleMenuHandle
                 <div className={line2Class}></div>
                 <div className={line3Class}></div>
             </div>
-            <a href="/" className="site-logo">CG</a>
+            <Link to="/" onClick={toggleMenuHandler} className="site-logo" >CG</Link>
             <nav className={navMenuClass}>
                 <ul className="nav-right">
                     <li><Link to="/" onClick={toggleMenuHandler}>Home</Link></li>

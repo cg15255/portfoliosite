@@ -24,13 +24,26 @@ class App extends Component {
     line3Class: "mobile-nav-button__line",
     successClosed: {
       display: "block"
+    },
+    loaded: true,
+    loadingStyles: {
+      "display" : "flex",
+      "opacity": "1"
+    },
+    bodyStyles: {
+      "opacity" : "0",
+      "transition": "0.6s"
     }
   }
 
   componentDidMount() {
     axios.get('https://developwithchris.com/wp-json/wp/v2/posts')
       .then(response => {
-        this.setState({wordpressData: response.data[0].acf});
+        this.setState({
+          wordpressData: response.data[0].acf,
+          loadingStyles: {"display": "none"},
+          bodyStyles: {"opacity": "1", "transition": "0.6s"}
+        });
       });
     axios.get('https://developwithchris.com/wp-json/wp/v2/projects')
     .then(response => {
@@ -54,42 +67,43 @@ class App extends Component {
     this.setState({mobileMenuActive: !this.state.mobileMenuActive});
   }
 
-  closeHandler = () => {
-    this.setState({successClosed: {display: "none"}})
-  }
-
   render() {
     return (
-      <HashRouter>
-        <div className="App site-container">
-          <Header 
-            heroHeaderText={this.state.wordpressData.hero_header_text}
-            projectsPageHeader={this.state.wordpressData.projects_page_header} 
-            contactPageHeader={this.state.wordpressData.contact_page_header}
-            toggleMenuHandler={this.toggleMenuHandler}
-            navMenuClass={this.state.navMenuClass}
-            line1Class={this.state.line1Class}
-            line2Class={this.state.line2Class}
-            line3Class={this.state.line3Class} 
-          />
-          <Route path="/" exact render={() => <MainImage imageURL={this.state.wordpressData.main_image} />} />
-          <Body 
-          wordpressData={this.state.wordpressData} 
-          projects={this.state.projects} 
-          successClosed={this.state.successClosed}
-          closeHandler={this.closeHandler}
-          />
-          <Route path="/" exact render={() => <CallToAction 
-            callToActionText={this.state.wordpressData.call_to_action_text} 
-            buttonText={this.state.wordpressData.call_to_action_button_text} 
-          />} />
-          <Route path="/projects" exact render={() => <CallToAction 
-            callToActionText={this.state.wordpressData.call_to_action_text} 
-            buttonText={this.state.wordpressData.call_to_action_button_text} 
-          />} />      
-          <Footer footerText={this.state.wordpressData.footer_text} />
-        </div>
-      </HashRouter>
+      <>
+        <div className="loading" style={this.state.loadingStyles} ><div className="spinner spinner-1"></div></div>
+        <HashRouter>
+          <div style={this.state.bodyStyles}>
+            <div className="App site-container">
+              <Header 
+                heroHeaderText={this.state.wordpressData.hero_header_text}
+                projectsPageHeader={this.state.wordpressData.projects_page_header} 
+                contactPageHeader={this.state.wordpressData.contact_page_header}
+                toggleMenuHandler={this.toggleMenuHandler}
+                navMenuClass={this.state.navMenuClass}
+                line1Class={this.state.line1Class}
+                line2Class={this.state.line2Class}
+                line3Class={this.state.line3Class} 
+              />
+              <Route path="/" exact render={() => <MainImage imageURL={this.state.wordpressData.main_image} />} />
+              <Body 
+              wordpressData={this.state.wordpressData} 
+              projects={this.state.projects} 
+              successClosed={this.state.successClosed}
+              closeHandler={this.closeHandler}
+              />
+              <Route path="/" exact render={() => <CallToAction 
+                callToActionText={this.state.wordpressData.call_to_action_text} 
+                buttonText={this.state.wordpressData.call_to_action_button_text} 
+              />} />
+              <Route path="/projects" exact render={() => <CallToAction 
+                callToActionText={this.state.wordpressData.call_to_action_text} 
+                buttonText={this.state.wordpressData.call_to_action_button_text} 
+              />} />      
+              <Footer footerText={this.state.wordpressData.footer_text} />
+            </div>
+          </div>
+        </HashRouter>
+      </>
     );
   }
 }
