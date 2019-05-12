@@ -73,16 +73,9 @@ class App extends Component {
   }
 
   render() {
-    let loadingDiv = (
-      <div className="loading" style={this.state.loadingStyles} ><div className="spinner spinner-1"></div></div>
-    );
-
-    if(this.state.loaded) {
-      loadingDiv = null;
-    }
-
     return (
       <HashRouter>
+        { this.state.loaded == true ? 
           <div className="App site-container">
             <Header 
               heroHeaderText={this.state.wordpressData.hero_header_text}
@@ -111,6 +104,7 @@ class App extends Component {
             />} />      
             <Footer footerText={this.state.wordpressData.footer_text} />
           </div>
+          : <div class="spinner-wrapper"><div class="spinner"></div></div> }
       </HashRouter>
     );
   }
